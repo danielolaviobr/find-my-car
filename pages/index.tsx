@@ -1,13 +1,15 @@
 import { Box, Center } from "@chakra-ui/react";
 import React, { useState } from "react";
 import QR from "../components/QR";
+import { useRouter } from "next/router";
 
 export default function QRscanner() {
-  const [qrscan, setQrscan] = useState("No result");
+  const navigator = useRouter();
+
   const handleScan = (data) => {
-    console.log(data);
     if (data) {
-      setQrscan(data);
+      // console.log(data);
+      navigator.push(data);
     }
   };
   const handleError = (err) => {
@@ -15,7 +17,7 @@ export default function QRscanner() {
   };
 
   return (
-    <Box h="100vh">
+    <Box h="100vh" display="flex" alignItems="center" justifyContent="center">
       <QR
         delay={300}
         onError={handleError}
