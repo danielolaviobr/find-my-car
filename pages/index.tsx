@@ -1,33 +1,27 @@
-import React, { Component } from "react";
-import QrReader from "react-qr-reader";
+import { Box, Center } from "@chakra-ui/react";
+import React, { useState } from "react";
+import QR from "../components/QR";
 
-class Test extends Component {
-  state = {
-    result: "No result",
-  };
-
-  handleScan = (data) => {
+export default function QRscanner() {
+  const [qrscan, setQrscan] = useState("No result");
+  const handleScan = (data) => {
+    console.log(data);
     if (data) {
-      this.setState({
-        result: data,
-      });
+      setQrscan(data);
     }
   };
-  handleError = (err) => {
+  const handleError = (err) => {
     console.error(err);
   };
-  render() {
-    return (
-      <div>
-        <QrReader
-          delay={300}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          style={{ width: "100%" }}
-        />
-        <p>{this.state.result}</p>
-      </div>
-    );
-  }
-}
 
+  return (
+    <Box h="100vh">
+      <QR
+        delay={300}
+        onError={handleError}
+        onScan={handleScan}
+        style={{ height: 240, width: 320 }}
+      />
+    </Box>
+  );
+}
