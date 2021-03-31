@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="pt">
         <Head>
-          <meta name="application-name" content="Find My Car" />
+          {/* <meta name="application-name" content="Find My Car" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
@@ -80,7 +80,7 @@ class MyDocument extends Document {
           <meta
             property="og:image"
             content="https://yourdomain.com/static/icons/apple-touch-icon.png"
-          />
+          /> */}
         </Head>
         <body>
           <Main />
