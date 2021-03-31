@@ -78,7 +78,7 @@ export default function StepTwo() {
         // transition={{ delay: 0.2, duration: 1 }}
         as={IconButton}
         variant="unstyled"
-        onClick={() => router.replace("/onboard/3")}
+        onClick={() => router.replace("/scanner")}
         icon={
           <ArrowForwardIcon w="24px" h="24px" color="#EB008C" />
         }></MotionBox>

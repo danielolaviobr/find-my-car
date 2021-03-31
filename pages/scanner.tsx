@@ -17,20 +17,25 @@ export default function QRscanner() {
   };
 
   return (
-    <Box 
-    h="100vh"
-    w="100%"
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
-    bg="yellowBG"
-    position="relative">
+    <Box
+      h="100vh"
+      w="100%"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      bg="yellowBG"
+      position="relative">
       <motion.div
-        style={{position: "absolute", objectFit: "contain", zIndex: 100, width:"192px", height:"168px"}}
-        initial={{ scale: 1.1}}
+        style={{
+          position: "absolute",
+          objectFit: "contain",
+          zIndex: 100,
+          width: "192px",
+          height: "168px",
+        }}
+        initial={{ scale: 1.1 }}
         animate={{ scale: 0.4, top: "0px" }}
-        transition={{ delay: 0.3, duration: 0.5, ease: "backInOut" }}
-      >
+        transition={{ delay: 0.3, duration: 0.5, ease: "backInOut" }}>
         <motion.img
           src="/assets/logo.png"
           width="384px"
@@ -38,18 +43,37 @@ export default function QRscanner() {
           layoutId="logo"
         />
       </motion.div>
-      
-        <QR
-          delay={300}
-          onError={handleError}
-          onScan={handleScan}
-          style={{width: "100%"}}
-          viewFinder={false}
+
+      <QR
+        delay={300}
+        onError={handleError}
+        onScan={handleScan}
+        style={{
+          width: "100%",
+          border: "4px solid #EB008C",
+          borderRadius: "8px",
+          margin: "16px",
+        }}
+        viewFinder={false}
+      />
+      <Flex
+        width="100%"
+        display="flex"
+        direction="column"
+        position="absolute"
+        alignItems="center"
+        justifyContent="center">
+        <Text color="#EB008C" fontSize={20} mb={8}>
+          Please Scan Barcode
+        </Text>
+        <Box
+          border="4px"
+          rounded="md"
+          borderColor="#EB008C"
+          w="300px"
+          h="300px"
         />
-        <Flex width="100%" display="flex" direction="column" position="absolute" alignItems="center" justifyContent="center">
-          <Text color="white" fontSize={20} >Please Scan Barcode</Text>
-          <Box border="2px" borderColor="gray.200" w="200px" h="200px" />
-        </Flex>
+      </Flex>
     </Box>
   );
 }
