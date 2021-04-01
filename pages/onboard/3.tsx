@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import router from "next/router";
 import React from "react";
 import { MotionBox } from "../../components/MotionBox";
+import StaticBackground from "../../components/StaticBackground";
 
 export default function StepTwo() {
   return (
@@ -22,6 +23,7 @@ export default function StepTwo() {
         height="168px"
         style={{ position: "absolute", transform: "scale(0.4)", top: "0px" }}
       />
+      <StaticBackground initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
       <Flex direction="column" align="center" justify="center">
         <motion.img
           src="/assets/hand-3.png"
@@ -52,11 +54,7 @@ export default function StepTwo() {
         bg="gray.300"
         rounded="full"
         position="fixed"
-        bottom="28px"
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // transition={{ delay: 0.2, duration: 1 }}
-      >
+        bottom="28px">
         <MotionBox
           w="33%"
           h={2}
@@ -64,18 +62,12 @@ export default function StepTwo() {
           rounded="full"
           layoutId="progressBar"
           ml="67%"
-          //   initial={{ opacity: 0 }}
-          //   animate={{ opacity: 1 }}
-          //   transition={{ delay: 0.2, duration: 1 }}
         />
       </MotionBox>
       <MotionBox
         position="fixed"
         bottom="16px"
         right="32px"
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // transition={{ delay: 0.2, duration: 1 }}
         as={IconButton}
         variant="unstyled"
         onClick={() => router.replace("/scanner")}
