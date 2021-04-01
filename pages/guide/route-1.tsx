@@ -13,7 +13,7 @@ import Map from "../../components/Map";
 export default function MapTest() {
   return (
     <Box
-      bg="red"
+      bg="transparent"
       h="100vh"
       display="flex"
       align="center"
@@ -108,6 +108,8 @@ export default function MapTest() {
           </filter>
         </defs>
       </svg>
+      <Box>
+      </Box>
     </Box>
   );
 }
