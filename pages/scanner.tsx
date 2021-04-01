@@ -26,11 +26,10 @@ export default function QRscanner() {
       bg="yellowBG"
       position="relative">
       <img
-        
         src="/assets/logo.png"
         width="192px"
         height="168px"
-        style={{ position: "absolute", transform: "scale(0.4)", top: "0px", zIndex:"50" }}
+        style={{ position: "absolute", transform: "scale(0.4)", top: "0px", zIndex:50 }}
       />
       <Flex
         width="100%"
