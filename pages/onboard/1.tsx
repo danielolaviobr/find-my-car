@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import router from "next/router";
 import React from "react";
 import { MotionBox } from "../../components/MotionBox";
+import StaticBackground from "../../components/StaticBackground";
 
 export default function StepOne() {
   return (
@@ -22,6 +23,7 @@ export default function StepOne() {
         height="168px"
         style={{ position: "absolute", transform: "scale(0.4)", top: "0px" }}
       />
+      <StaticBackground initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
       <Flex direction="column" align="center" justify="center">
         <motion.img
           src="/assets/hand-1.png"
@@ -78,9 +80,8 @@ export default function StepOne() {
         as={IconButton}
         variant="unstyled"
         onClick={() => router.replace("/onboard/2")}
-        icon={
-          <ArrowForwardIcon w="24px" h="24px" color="#EB008C" />
-        }></MotionBox>
+        icon={<ArrowForwardIcon w="24px" h="24px" color="#EB008C" />}
+      />
     </Box>
   );
 }

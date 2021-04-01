@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import QR from "../components/QR";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import StaticBackground from "../components/StaticBackground";
 
 export default function QRscanner() {
   const navigator = useRouter();
@@ -29,7 +30,12 @@ export default function QRscanner() {
         src="/assets/logo.png"
         width="192px"
         height="168px"
-        style={{ position: "absolute", transform: "scale(0.4)", top: "0px", zIndex:50 }}
+        style={{
+          position: "absolute",
+          transform: "scale(0.4)",
+          top: "0px",
+          zIndex: 100,
+        }}
       />
       <Flex
         width="100%"
@@ -38,16 +44,15 @@ export default function QRscanner() {
         position="absolute"
         alignItems="center"
         justifyContent="center"
-      >
+        zIndex={10}>
         <Text color="#EB008C" fontSize={40} mb={5} fontWeight="bold">
           QR Code
         </Text>
-        <Flex 
-          width="100%" 
+        <Flex
+          width="100%"
           alignItems="center"
           justifyContent="center"
-          zIndex= "50"
-        >
+          zIndex="50">
           <QR
             delay={300}
             onError={handleError}
@@ -67,42 +72,7 @@ export default function QRscanner() {
           />
         </Flex>
       </Flex>
-      <motion.img
-        src="/assets/Polygon 3.svg"
-        style={{ position: "absolute", top: 0 }}
-        initial={{ x: "50%", y: "50vh", scale: 0.8 }}
-        animate={{ x: "70%", y: "80%", scale: 1, rotate: 80 }}
-        exit={{ opacity: 0 }}
-        transition={{ delay: 1, duration: 0.3, ease: "backInOut" }}
-        layoutId="pol1"
-      />
-      <motion.img
-        src="/assets/Polygon 4.svg"
-        style={{ position: "absolute", top: 0 }}
-        initial={{ x: "-70%", y: "25vh", scale: 0.7 }}
-        animate={{ x: "30vw", y: "80vh", scale: 1, rotate: 60 }}
-        exit={{ opacity: 0 }}
-        transition={{ delay: 1, duration: 0.3, ease: "backInOut" }}
-        layoutId="pol2"
-      />
-      <motion.img
-        src="/assets/Ellipse 2.svg"
-        style={{ position: "absolute", top: 0 }}
-        initial={{ x: "60%", y: "40vh", scale: 0.5 }}
-        animate={{ x: "-80%", y: "5vh", scale: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ delay: 1, duration: 0.3, ease: "backInOut" }}
-        layoutId="pol3"
-      />
-      <motion.img
-        src="/assets/Subtract.svg"
-        style={{ position: "absolute", top: 0 }}
-        initial={{ x: "-30%", y: "45vh", scale: 0.7 }}
-        animate={{ x: "-60%", y: "70vh", scale: 1, rotate: 120 }}
-        exit={{ opacity: 0 }}
-        transition={{ delay: 1, duration: 0.3, ease: "backInOut" }}
-        layoutId="pol4"
-      />
+      <StaticBackground initial={{ opacity: 0 }} animate={{ opacity: 1 }} />
     </Box>
   );
 }
